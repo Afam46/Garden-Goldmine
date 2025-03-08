@@ -1,0 +1,33 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-C1_vF204.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-B6La7RzA.css"
+    ],
+    "assets": [
+      "assets/coin-Dg8Zz918.png",
+      "assets/water-BGVAX1ju.png",
+      "assets/bar-item-Bd3unL5p.png"
+    ]
+  },
+  "resources/js/components/pages/img/bar-item.png": {
+    "file": "assets/bar-item-Bd3unL5p.png",
+    "src": "resources/js/components/pages/img/bar-item.png"
+  },
+  "resources/js/components/pages/img/coin.png": {
+    "file": "assets/coin-Dg8Zz918.png",
+    "src": "resources/js/components/pages/img/coin.png"
+  },
+  "resources/js/components/pages/img/water.png": {
+    "file": "assets/water-BGVAX1ju.png",
+    "src": "resources/js/components/pages/img/water.png"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-BaVMVknW.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  }
+}
