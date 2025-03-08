@@ -32,7 +32,7 @@ export default{
     }
     @media (max-width: 550px) {
         .price-coin-balance{
-            top: 64px;
+            top: 62px;
             background-color: white;
             border: 1px solid #7fcf7f;
             border-radius: 0 0 5px 5px;
