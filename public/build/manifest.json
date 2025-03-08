@@ -10,7 +10,11 @@
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app--tmyCEaB.css"
+      "assets/app--tmyCEaB.css",
+      "assets/app-B6La7RzA.css",
+      "assets/app-BaVMVknW.css",
+      "assets/afam.css",
+      "assets/app-CLXPbenJ.css"
     ],
     "assets": [
       "assets/coin-Dg8Zz918.png",
