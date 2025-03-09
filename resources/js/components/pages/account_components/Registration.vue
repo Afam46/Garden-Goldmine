@@ -83,6 +83,7 @@ export default{
                 })
                 .then(res => {
                     localStorage.setItem('auth', true)
+                    this.$emit('updateBalance');
                     this.$router.push('/');
                 })
             });

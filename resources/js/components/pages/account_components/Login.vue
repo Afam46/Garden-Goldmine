@@ -31,7 +31,7 @@ export default{
         return{
             email: '',
             password: '',
-            err: '',
+            err: null,
             check: false,
         }
     },
@@ -41,15 +41,13 @@ export default{
             .then(res => {
                 this.check = res.data
             })
-            this.emailErr = '';
-            this.passErr = '';
-
             if(this.check){
                 axios.get('/sanctum/csrf-cookie')
                 .then(response => {
                     axios.post('/login', {email:this.email, password:this.password})
                     .then(res => {
                         localStorage.setItem('auth', true)
+                        this.$emit('updateBalance');
                         this.$router.push('/');
                     })
                 });

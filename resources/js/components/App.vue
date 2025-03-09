@@ -1,6 +1,7 @@
 <template>
-    <AppHeader v-if="balance > -1" :balance="balance"/>
-    <router-view @buy="niga" @sell="plus"></router-view>
+    <AppHeader :balance="balance"/>
+    <router-view @buy="niga" @sell="plus" @updateBalance="getBalance">
+    </router-view>
 </template>
 
 <script>
