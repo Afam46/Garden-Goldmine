@@ -40,20 +40,20 @@ export default{
             axios.post('/api/check',{email: this.email, password: this.password})
             .then(res => {
                 this.check = res.data
-            })
-            if(this.check){
-                axios.get('/sanctum/csrf-cookie')
-                .then(response => {
-                    axios.post('/login', {email:this.email, password:this.password})
-                    .then(res => {
-                        localStorage.setItem('auth', true)
-                        this.$emit('updateBalance');
-                        this.$router.push('/');
-                    })
+                if(this.check){
+                    axios.get('/sanctum/csrf-cookie')
+                    .then(response => {
+                        axios.post('/login', {email:this.email, password:this.password})
+                        .then(res => {
+                            localStorage.setItem('auth', true)
+                            this.$emit('updateBalance');
+                            this.$router.push('/');
+                        })
                 });
-            }else{
-                this.err = 'Не корректная почта или пароль'
-            }
+                }else{
+                    this.err = 'Не корректная почта или пароль'
+                }
+            })
         },
     }
 }
@@ -68,7 +68,7 @@ export default{
     border-radius: 10px;
     display: flex;
     width: 40%;
-    margin: 170px auto;
+    margin: 210px auto;
     align-items: center;
     flex-direction: column;
 }

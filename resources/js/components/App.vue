@@ -1,6 +1,7 @@
 <template>
-    <AppHeader :balance="balance"/>
-    <router-view @buy="niga" @sell="plus" @updateBalance="getBalance">
+    <AppHeader v-if="balance > -1" :balance="balance"/>
+    <router-view @buy="niga" @sell="plus"
+    @updateBalance="getBalance" @destroy="balance = -1">
     </router-view>
 </template>
 
@@ -11,7 +12,7 @@ export default{
     components: {AppHeader},
     data(){
         return{
-            balance: null,
+            balance: -1,
         }
     },
     mounted(){

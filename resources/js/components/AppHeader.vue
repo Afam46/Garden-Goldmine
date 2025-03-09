@@ -5,7 +5,7 @@
             <router-link class="btn-flower nav-item" to="/garden">Сад</router-link>
             <router-link class="btn-flower nav-item" :to="{name :  'login'}">Аккаунт</router-link>
         </nav>
-        <Balance v-if="balance > -1" :balance="balance"/>
+        <Balance :balance="balance"/>
     </div>
 </template>
 

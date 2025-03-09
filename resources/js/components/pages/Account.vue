@@ -13,7 +13,7 @@
             <p>Имя: {{ user.name }}</p>
             <p>Почта: {{ user.email }}</p>
             <p>Вместимость сада: {{ user.capacity }}</p>
-    </div>
+        </div>
     </div>
     <div class="top-table">
         <TopTable :users="top" :user_id="user.id" v-if="top"/>
@@ -48,7 +48,7 @@ export default{
         logout(){
             axios.post('/logout').then(res => {
                 localStorage.removeItem('auth')
-                this.$emit('check');
+                this.$emit('destroy');
                 this.$router.push('/login')
             })
         },

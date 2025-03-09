@@ -1,5 +1,5 @@
 <template>
-    <div class="form-input">
+    <div class="form-input" style="margin: 180px auto;">
         <h1 style="font-size: 36px;">Регистрация</h1>
         <div class="input-label">
             <label>Имя:</label>
@@ -64,6 +64,7 @@ export default{
             this.nameErr = [];
             this.emailErr = [];
             this.passErr = [];
+            this.passconfErr = [];
             if(!this.name.trim()){
                 this.nameErr.push('Введите имя')
             }if(this.password !== this.password_confirmation){

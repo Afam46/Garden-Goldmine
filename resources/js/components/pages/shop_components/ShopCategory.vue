@@ -22,6 +22,7 @@ export default{
 .filters{
     border: solid 1px #568f56;
     width: 100%;
+    margin-top: 5px;
 }
 .all-categories{
     display: flex;

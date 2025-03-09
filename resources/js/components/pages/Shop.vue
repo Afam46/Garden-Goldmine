@@ -6,7 +6,7 @@
     </div>
     </div>
     <div v-else class="loading">
-        <h1>Loading...</h1>
+        <h1>Загрузка...</h1>
     </div>
 </template>
 

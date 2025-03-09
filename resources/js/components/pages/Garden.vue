@@ -33,6 +33,9 @@
         </div>
         <AddGarden @buy="goEmit" :balance="balance" :countFlowers="flowers.length"/>
     </div>
+    <div v-else class="loading">
+        <h1>Загрузка...</h1>
+    </div>
 </div>
 </template>
 
