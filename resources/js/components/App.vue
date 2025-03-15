@@ -1,7 +1,8 @@
 <template>
-    <AppHeader v-if="balance > -1" :balance="balance"/>
+    <AppHeader v-if="isAuth" :balance="balance"/>
     <router-view @buy="niga" @sell="plus"
-    @updateBalance="getBalance" @destroy="balance = -1">
+    @updateBalance="getBalance" @destroy="balance = 0"
+    @checkAuth="checkAuth">
     </router-view>
 </template>
 
@@ -12,13 +13,20 @@ export default{
     components: {AppHeader},
     data(){
         return{
-            balance: -1,
+            isAuth: false,
+            balance: 0,
         }
     },
     mounted(){
-        this.getBalance()
+        this.getBalance();
+        this.checkAuth();
     },
     methods:{
+        checkAuth(){
+          if(localStorage.getItem('auth')){
+            this.isAuth = true
+          }
+        },
         getBalance(){
             axios.get('/api/balance').then(res => {
                 this.balance = res.data.balance

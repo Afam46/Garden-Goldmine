@@ -27,8 +27,8 @@
             <p class="err" v-for="(err,i) in passconfErr" :key="i">{{ err }}</p>
         </div>
         <div>
-            <input class="btn-flower" @click.prevent="register" type="submit"
-            value="Зарегестрироваться" style="margin: 10px 0;">
+            <button class="btn-flower" @click.prevent="register" type="submit"
+            style="margin: 10px 0;" :disabled="dis">Зарегестрироваться</button>
         </div>
         <div style="display: flex; margin-bottom: 20px;">
                 <p>Есть аккаунт?</p>
@@ -44,6 +44,7 @@ import axios from 'axios'
 export default{
     data(){
     return{
+        dis: false,
         name: '',
         email: '',
         password: '',
@@ -61,6 +62,7 @@ export default{
     },
     methods:{
         register(){
+            this.dis = true;
             this.nameErr = [];
             this.emailErr = [];
             this.passErr = [];
@@ -76,19 +78,25 @@ export default{
             }if(this.nameErr.length + this.emailErr.length + this.passErr.length === 0){
                 axios.get('/sanctum/csrf-cookie')
                 .then(response => {
-                axios.post('/register', {
-                    email:this.email,
-                    password:this.password,
-                    name:this.name,
-                    password_confirmation: this.password_confirmation,
-                })
-                .then(res => {
-                    localStorage.setItem('auth', true)
-                    this.$emit('updateBalance');
-                    this.$router.push('/');
-                })
+                    axios.post('/register', {
+                        email:this.email,
+                        password:this.password,
+                        name:this.name,
+                        password_confirmation: this.password_confirmation,
+                    })
+                    .then(res => {
+                        if(res && res.status === 200){
+                            localStorage.setItem('auth', true)
+                            this.$emit('updateBalance');
+                            this.$emit('checkAuth');
+                            this.$router.push('/');
+                        }
+                    })
             });
             }
+            setTimeout(() => {
+                this.dis = false
+            }, 2000);
         },
         getEmail(){
             axios.get('/api/email').then(res => {

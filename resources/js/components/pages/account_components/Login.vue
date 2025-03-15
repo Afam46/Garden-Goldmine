@@ -12,8 +12,8 @@
 
         <p class="error">{{ err }}</p>
 
-        <input @click.prevent="login" style="margin: 15px 0; width: 25%;"
-        type="submit" class="btn-flower" value="Войти">
+        <button @click.prevent="login" style="margin: 15px 0; width: 25%;"
+        class="btn-flower" :disabled="dis">Войти</button>
 
         <div style="display: flex; margin-bottom: 20px;">
                 <p>Нет аккаунта?</p>
@@ -32,28 +32,32 @@ export default{
             email: '',
             password: '',
             err: null,
-            check: false,
+            dis: false,
         }
     },
     methods:{
         login(){
-            axios.post('/api/check',{email: this.email, password: this.password})
+            this.dis = true;
+            axios.get('/sanctum/csrf-cookie')
             .then(res => {
-                this.check = res.data
-                if(this.check){
-                    axios.get('/sanctum/csrf-cookie')
-                    .then(response => {
-                        axios.post('/login', {email:this.email, password:this.password})
-                        .then(res => {
-                            localStorage.setItem('auth', true)
-                            this.$emit('updateBalance');
-                            this.$router.push('/');
-                        })
+                return axios.post('/login', {
+                    email: this.email,
+                    password: this.password
                 });
+            })
+            .then(res => {
+                if(res && res.status === 204){
+                    localStorage.setItem('auth', true);
+                    this.$emit('updateBalance');
+                    this.$emit('checkAuth');
+                    this.$router.push('/');
                 }else{
-                    this.err = 'Не корректная почта или пароль'
+                    this.err = 'Неверный логин или пароль'
                 }
             })
+            setTimeout(() => {
+                this.dis = false
+            }, 2000);
         },
     }
 }

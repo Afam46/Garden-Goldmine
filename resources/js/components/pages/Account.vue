@@ -49,7 +49,7 @@ export default{
             axios.post('/logout').then(res => {
                 localStorage.removeItem('auth')
                 this.$emit('destroy');
-                this.$router.push('/login')
+                this.$router.push({name:'login'})
             })
         },
         getUser(){
