@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Models\Category;
-use App\Models\Garden;
+use App\Models\GardenFlower;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Flower extends Model
 {
-    protected $fillable = ['title', 'price', 'img', 'category_id','use_time_water'
-,'descrip'];
+    protected $fillable = ['title', 'price', 'img', 'category_id','use_time_water','descrip'];
 
     public $timestamps = false;
 
@@ -21,6 +20,6 @@ class Flower extends Model
 
     public function gardens()
     {
-        return $this->belongsTo(Garden::class, 'flower_id', 'id');
+        return $this->belongsTo(GardenFlower::class, 'flower_id', 'id');
     }
 }
