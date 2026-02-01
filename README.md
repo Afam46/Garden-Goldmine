@@ -5,22 +5,22 @@
 ## 📸 Скриншоты
 
 ### Главная страница
-![Главная страница](screenshots/main.png)
+(screenshots/main.png)
 
 ### Личный сад пользователя
-![Личный сад](screenshots/garden.png)
+(screenshots/garden.png)
 
 ### Просмотр растения
-![Личный сад](screenshots/flower.png)
+(screenshots/flower.png)
 
 ### Административная панель
-![Админ-панель](screenshots/main_admin.png)
+(screenshots/main_admin.png)
 
 ### Таблица растений
-![Админ-панель](screenshots/flowers_admin.png)
+(screenshots/flowers_admin.png)
 
 ### Добавление растений
-![Админ-панель](screenshots/flower_add_admin.png)
+(screenshots/flower_add_admin.png)
 
 # 🚀 Запуск
 
