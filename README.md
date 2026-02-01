@@ -4,23 +4,36 @@
 
 ## 📸 Скриншоты
 
+
 ### Главная страница
-(screenshots/main.png)
+
+![Главная страница](screenshots/main.png)
+
 
 ### Личный сад пользователя
-(screenshots/garden.png)
+
+![Личный сад](screenshots/garden.png)
+
 
 ### Просмотр растения
-(screenshots/flower.png)
+
+![Просмотр растения](screenshots/flower.png)
+
 
 ### Административная панель
-(screenshots/main_admin.png)
+
+![Админ-панель](screenshots/main_admin.png)
+
 
 ### Таблица растений
-(screenshots/flowers_admin.png)
+
+![Таблица растений](screenshots/flowers_admin.png)
+
 
 ### Добавление растений
-(screenshots/flower_add_admin.png)
+
+![Добавление растений](screenshots/flower_add_admin.png)
+
 
 # 🚀 Запуск
 
